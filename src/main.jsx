@@ -13,6 +13,7 @@ import GroceryShop from './components/Shop/GroceryShop.jsx';
 import LaundryShop from './components/Shop/LaundryShop.jsx';
 import SuperShop from './components/Shop/SuperShop.jsx';
 import MeatShop from './components/Shop/MeatShop.jsx';
+import UserDetail from './components/UserDetail/UserDetail.jsx';
 
 const router = createBrowserRouter([
   // {
@@ -86,9 +87,14 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path: '/user',
+        path: '/users',
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
         element: <User></User>
+      },
+      {
+        path: '/user/:userId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        element: <UserDetail></UserDetail>
       }
     ]
     }
