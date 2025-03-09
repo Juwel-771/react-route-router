@@ -8,6 +8,11 @@ import Home from './components/Home/Home.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Shop from './components/Shop/Shop.jsx';
+import User from './components/User/User.jsx';
+import GroceryShop from './components/Shop/GroceryShop.jsx';
+import LaundryShop from './components/Shop/LaundryShop.jsx';
+import SuperShop from './components/Shop/SuperShop.jsx';
+import MeatShop from './components/Shop/MeatShop.jsx';
 
 const router = createBrowserRouter([
   // {
@@ -55,15 +60,37 @@ const router = createBrowserRouter([
         element: <About></About>
       },
       {
-        path: '/Contact',
+        path: '/contact',
         element: <Contact></Contact>
       },
       {
-        path: 'shop',
-        element: <Shop></Shop>
+        path: '/shop',
+        element: <Shop></Shop>,
+        children: [
+          {
+            path: "/shop/grocery",
+            element: <GroceryShop></GroceryShop>
+          },
+          {
+            path: "/shop/laundry",
+            element: <LaundryShop></LaundryShop>
+          },
+          {
+            path: "/shop/super",
+            element: <SuperShop></SuperShop>
+          },
+          {
+            path: "/shop/meat",
+            element: <MeatShop></MeatShop>
+          }
+        ]
+      },
+      {
+        path: '/user',
+        element: <User></User>
       }
     ]
-   }
+    }
 
 ]);
 
