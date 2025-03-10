@@ -14,6 +14,8 @@ import LaundryShop from './components/Shop/LaundryShop.jsx';
 import SuperShop from './components/Shop/SuperShop.jsx';
 import MeatShop from './components/Shop/MeatShop.jsx';
 import UserDetail from './components/UserDetail/UserDetail.jsx';
+import Posts from './components/Posts/Posts.jsx';
+import PostDetails from './components/PostDetails/PostDetails.jsx';
 
 const router = createBrowserRouter([
   // {
@@ -91,10 +93,25 @@ const router = createBrowserRouter([
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
         element: <User></User>
       },
+      // {
+      //   path: '/user/:userId',
+      //   loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+      //   element: <UserDetail></UserDetail>
+      // }
       {
         path: '/user/:userId',
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
         element: <UserDetail></UserDetail>
+      },
+      {
+        path: '/posts',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        element: <Posts></Posts>
+      },
+      {
+        path: '/post/:postId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+        element: <PostDetails></PostDetails>
       }
     ]
     }

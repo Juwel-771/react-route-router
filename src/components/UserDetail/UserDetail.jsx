@@ -3,13 +3,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const UserDetail = () => {
     const user = useLoaderData();
-    const {name, username, email} = user;
+    const {name, email} = user;
     return (
         <div>
-            <h1> {name} </h1>
-            <h2> {username} </h2>
-            <h2> {email} </h2>
-            <Link to = "/users">Back</Link>
+           <h1>{name}</h1>
+           <h2>{email}</h2>
+           <Link to="/users">
+            <button className='my-4'>Back</button>
+           </Link>
         </div>
     );
 };

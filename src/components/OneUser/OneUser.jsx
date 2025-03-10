@@ -8,7 +8,7 @@ const OneUser = ({user}) => {
             <h2 className='text-3xl'> {name} </h2>
             <p> {email} </p>
             <p> {phone} </p>
-            <button><Link to = {`/user/${id}`} >Details</Link></button>
+            <Link to = {`/user/${id}`}><button>Details</button></Link>
         </div>
     );
 };
