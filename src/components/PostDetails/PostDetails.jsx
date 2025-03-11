@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 
 const PostDetails = () => {
     const post = useLoaderData();
     const navigate = useNavigate();
+    const postId = useParams();
+
+    console.log(postId);
+
     const {id, body, title} = post;
 
     const handleGoBack = () => {
